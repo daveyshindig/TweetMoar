@@ -1,0 +1,47 @@
+# Ignore OS X files
+.DS_Store
+
+# Ignore database files
+*.db
+
+# Ignore results folder
+results/
+
+# Ignore fabfile because of potentially sensitive info
+fabfile.py
+
+# Ignore compiled Python files.
+*.pyc
+
+# Ignore the settings file so that new users create their own.
+local_settings.py
+
+# Ignore the test files.
+*.log
+site_media
+
+# Ignore the apache configuration
+deploy/*.conf
+
+# Ignore the result of nosetests.
+nosetests.xml
+
+# Ignore pip log errors.
+pip-log.txt
+
+# Ignore cache files
+.cache
+
+# Ignore coverage files
+.coverage
+coverage.xml
+htmlcov/
+
+#Ignore Sphinx build
+doc/_build
+
+# Ignore pycharm files
+.idea/
+
+# Ignore celerybeat
+celerybeat-schedule

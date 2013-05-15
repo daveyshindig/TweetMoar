@@ -1,0 +1,93 @@
+{% extends "base.html" %}
+{% block head %}
+	{{ super() }}
+
+	<link href='http://fonts.googleapis.com/css?family=Montserrat+Alternates:700' rel='stylesheet' type='text/css'>
+
+	<style type="text/css">
+	  body {
+	    padding-top: 20px;
+	    padding-bottom: 40px;
+	    background-image: url('static/img/IMG_0624.jpg');
+	  }
+
+	  h4 {
+	  	font-family: "Montserrat Alternates";
+	  }
+	  /* Custom container */
+	  .container-narrow {
+	    margin: 0 auto;
+	    max-width: 700px;
+	    background-color: #FFFFFF;
+	    padding: 20px 20px;
+	  }
+	  .container-narrow > hr {
+	    margin: 30px 0;
+	  }
+
+	  /* Main marketing message and sign up button */
+	  .jumbotron {
+	    margin: 60px 0;
+	    text-align: center;
+	  }
+	  .jumbotron h1 {
+	    font-size: 72px;
+	    font-family: "Montserrat Alternates";
+	    line-height: 1;
+	  }
+	  .jumbotron .btn {
+	    font-size: 21px;
+	    padding: 14px 24px;
+	  }
+
+	  /* Supporting marketing content */
+	  .marketing {
+	    margin: 60px 0;
+	  }
+	  .marketing p + h4 {
+	    margin-top: 28px;
+	  }
+	</style>
+{% endblock %}
+
+{% block content %}
+<div class="container-narrow">
+
+  <div class="masthead">
+    <ul class="nav nav-pills pull-right">
+      <li class="active"><a href="#">Home</a></li>
+      <li><a href="/about">About</a></li>
+      <li><a href="http://twitter.com/daveyshindig">Contact</a></li>
+    </ul>
+    <h3 class="muted"><font face="Montserrat Alternates">TweetMoar</font></h3>
+  </div>
+
+  <hr>
+
+  <div class="jumbotron">
+      <img src="static/img/mynahs.jpg"><br>
+      <h1>Tweeting Together Is Moar Fun!</h1>
+    <p class="lead">It's much better to tweet together. With <b>TweetMoar</b>, you and your friends share a voice on Twitter, and harness the group's social media power to pump up the volume.</p>
+    <a class="btn btn-large btn-success" href="/signup">Sign up today</a>
+  </div>
+
+  <hr>
+
+  <div class="row-fluid marketing">
+    <div class="span6">
+   	  <h4>Collective Tweeting Has Arrived</h4>
+      <p>Gone are the days when only one person could serve as the designated twitterer. Now you can crowdsource your tweets, let the desirables behind the scenes to play, and create a collective voice for a single Twitter account.</p>
+
+      <h4>Adjust &amp; Amplify</h4>
+      <p>By scheduling retweets from their own accounts, the group is able to amplify the messages it likes best; administrators can pick rules and setup the program to suit everyone's needs.</p>
+
+      <h4>Already Signed Up?</h4>
+      <p>We're glad to have you with us as we get the project going.</p>
+      <p><a class="btn" href="login">Sign in &raquo;</a></p>
+
+    </div>
+  </div>
+
+  <hr>
+
+{% endblock %}
