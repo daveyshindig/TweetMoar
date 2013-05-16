@@ -23,6 +23,18 @@ By scheduling retweets from their own accounts, the group is able to amplify the
 
 
 
+## Toolchain
+
+This project is being built on:
+* Google App Engine
+* Python 2.7
+* Jinja 2
+* Twitter Bootstrap
+* Jquery 1.9
+* Unicorn love and wolf lazers
+
+
+
 ## Versioning
 
 For transparency and insight into our release cycle, and for striving to maintain backward compatibility, Bootstrap will be maintained under the Semantic Versioning guidelines as much as possible.
