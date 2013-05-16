@@ -1,7 +1,7 @@
 TweetMoar
 =========
 
-(http://www2.hawaii.edu/~dwilkie/screencap.png)
+![screencap of the main screen](http://www2.hawaii.edu/~dwilkie/screencap.png)
 
 ## Tweeting Together Is Moar Fun!
 
@@ -25,7 +25,7 @@ By scheduling retweets from their own accounts, the group is able to amplify the
 
 ## Toolchain
 
-This project is being built on:
+This project is built with:
 * Google App Engine
 * Python 2.7
 * Jinja 2
@@ -63,14 +63,14 @@ Have a bug or a feature request? [Please open a new issue](https://github.com/da
 
 **Davey Wilkie**
 
-+ [http://github.com/mdo](http://github.com/daveywilkie)
++ [http://github.com/daveywilkie](http://github.com/daveywilkie)
 + [http://www2.hawaii.edu/~dwilkie](http://www2.hawaii.edu/~dwilkie)
 
 
 
 ## Copyright and license
 
-Copyright 2013 Davey Wilkie
+Copyright 2013 Sick Tyte, LLC
 
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this work except in compliance with the License.
