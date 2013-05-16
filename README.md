@@ -59,7 +59,7 @@ Have a bug or a feature request? [Please open a new issue](https://github.com/da
 
 
 
-## Authors
+## Author
 
 **Davey Wilkie**
 
