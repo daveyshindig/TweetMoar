@@ -30,7 +30,6 @@ import models
 import tweetmoar
 from models import User, Tweet, OAuthToken
 from auth import make_secure_val, check_secure_val
-import memcache2
 import tweepy
 
 # Point to the HTML & CSS files.

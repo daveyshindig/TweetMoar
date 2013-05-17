@@ -1,21 +1,17 @@
 TweetMoar
 =========
 
-![screencap of the main screen](http://www2.hawaii.edu/~dwilkie/screencap.png)
-
 ## Tweeting Together Is Moar Fun!
+
+![screencap of the main screen](http://www2.hawaii.edu/~dwilkie/screencap.png)
 
 ### Crowdsource Your Twitter
 
-TweetMoar is a sleek, intuitive web application that lets you and your friends or organization share a united voice on Twitter, and harnesses the group's social media power to pump up the volume.
+TweetMoar is a sleek, intuitive web application that lets you and your friends or your organization share a united voice on Twitter. It harnesses the group's social media power to pump up the volume.
 
 ### It's much better, tweeting together. 
 
-Collective tweeting promises to bring out the best in your group of friends or organization. 
-
-###Collective Tweeting Has Arrived
-
-Gone are the days when only one person could serve as the 'designated tweeter'. Now you can crowdsource your tweets, let the desirables behind the scenes to play, and create a collective voice for a single Twitter account.
+Collective tweeting has arrived. Gone are the days when only one person could serve as the 'designated tweeter'. Crowdsource your tweets, let the desirables behind the scenes to play, and create a collective voice for a single Twitter account.
 
 ###Adjust & Amplify Your Message
 
@@ -37,7 +33,9 @@ This project is built with:
 
 ## Versioning
 
-For transparency and insight into our release cycle, and for striving to maintain backward compatibility, Bootstrap will be maintained under the Semantic Versioning guidelines as much as possible.
+OK, so the project has a way to go before it will be functional. Still, there's a plan for that.
+
+For transparency and insight into our release cycle, and for striving to maintain backward compatibility, Tweetmoar will be maintained under the Semantic Versioning guidelines as much as possible.
 
 Releases will be numbered with the following format:
 
