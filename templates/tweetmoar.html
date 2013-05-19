@@ -14,7 +14,7 @@
 {% block content %}
     	<div class="container-fluid">
     		<div class="row-fluid">
-    			<div class="span4">
+    			<div class="span6">
        				<form method="post">
 					    <fieldset>
 						    <legend>Tweet</legend>
@@ -31,39 +31,40 @@
 					    </fieldset>
 				    </form>
 	 			</div> <!-- /row-fluid -->
-    			<div class="span8">
+    			<div class="span6">
     				<div>
-					<h3>Candidate Tweets</h3>
-		            {% if not candidates %}
-     		            <img src="http://placekitten.com/200/200">
-		            	<p><em>No tweets have yet been suggested.</em></p>
-		            {% else %}
-						<table class="table" max-width="100%">
-							<caption>Click the arrows by tweets you like.</caption>
-				            <thead>
-				              	<tr>
-					                <th>votes</th>
-					                <th>tweet</th>
-					                <th>age</th>
-				              	</tr>
-				            </thead>
-				            <tbody>
-							{% for tweet in candidates %}
-								<tr>
-									<td width="10%">
-										<a href="#"><img src="static/img/up.png" width="16" padding=2px, 5px></a>
-										&nbsp;{{ tweet.upvotes }}
-									</td>
-									<td width="50%">"{{ tweet.text }}"{% if tweet.via %}<em>—@{{ tweet.user }}</em>{% endif %}</td> 
-									<td><font color="grey">{{ tweet.time_str() }}</font></td>
-								</tr>
-							{% endfor %}
-						</tbody>
-					</table></div>
+						<h3>Candidate Tweets</h3>
+			            {% if not candidates %}
+	     		            <img src="http://placekitten.com/200/200">
+			            	<p><em>No tweets have yet been suggested.</em></p>
+			            {% else %}
+							<table class="table" max-width="100%">
+								<caption>Click the arrows by tweets you like.</caption>
+					            <thead>
+					              	<tr>
+						                <th>votes</th>
+						                <th>tweet</th>
+						                <th>age</th>
+					              	</tr>
+					            </thead>
+					            <tbody>
+								{% for tweet in candidates %}
+									<tr>
+										<td width="10%">
+											<a href="#"><img src="static/img/up.png" width="16" padding=2px, 5px></a>
+											&nbsp;{{ tweet.upvotes }}
+										</td>
+										<td width="50%">"{{ tweet.text }}"{% if tweet.via %}&nbsp;<em>—@{{ tweet.user }}</em>{% endif %}</td> 
+										<td><font color="grey">{{ tweet.time_str() }}</font></td>
+									</tr>
+								{% endfor %}
+							</tbody>
+						</table>
+					</div>
 					{% endif %}
-		   			<div>
-					<h3>Twitter Feed</h3>
-					{% if posted %}
+			   		<div>
+						<h3>Twitter Feed</h3>
+						{% if posted %}
 						<table class="table">
 							<caption>Recently posted via TweetMoar.</caption>
 				            <tbody>
@@ -75,11 +76,12 @@
 									</tr>
 								{% endfor %}
 							</tbody>
-						</table></div>
-					{% else %}
-		            <img src="http://placekitten.com/200/200">
-					<p><em>No tweets yet.</em></p>
-					{% endif %}
+						</table>
+						{% else %}
+			            <img src="http://placekitten.com/200/200">
+						<p><em>No tweets yet.</em></p>
+						{% endif %}
+					</div>
 		   		</div> <!-- /span8 -->
     		</div> <!-- /row-fluid -->
     	</div> <!-- /container-fluid -->

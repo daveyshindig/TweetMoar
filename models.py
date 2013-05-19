@@ -38,8 +38,7 @@ class Tweet(db.Model):
 		d = { 'text': self.text,
 			  'user': self.user,
 			  'shortened_link': self.shortened_link,
-			  'created': self.created.strftime(time_fmt),
-			  'last_modified': self.last_modified.strftime(time_fmt)}
+			  'created': self.created.strftime(time_fmt)}
 		return d
 
 	def time_str(self):

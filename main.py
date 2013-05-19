@@ -4,12 +4,12 @@
 
 This file constitutes the main class and provides basic functionalities for
 TweetMoar.  Its classes provide a user registration system, cookies
-and session management.
+and session management, URL handling and moar.
 
 (c) 2013 David Wilkie
 
 @author David Wilkie
-@since 13 May 2013
+@since 19 May 2013
 
 """
 
@@ -68,7 +68,7 @@ EMAIL_RE  = re.compile(r'^[\S]+@[\S]+\.[\S]+$')
 # For Twitter / OAuth
 CONSUMER_KEY = '4s17bXX3kH9aYcMP81Cw'
 CONSUMER_SECRET = 'dHhJQlJ7UM84RP5EVGWGCD7ljPzYetdrqHJA1tcPqp4'
-ACCESS_KEY = '196497635-YGOp7z1bvn1HNpP9mUkqtGezb7r25oGx2HMBNz6o',
+ACCESS_KEY = '196497635-YGOp7z1bvn1HNpP9mUkqtGezb7r25oGx2HMBNz6o'
 ACCESS_SECRET = 'FSKfrsOAx8Pg2OAdLmE7345Jfzr1EJ3AmfEveLguyGA'
 
 # Regex to check user input for validity
@@ -288,30 +288,30 @@ class Home(BaseHandler):
 
 	def get(self):
 		if self.read_secure_cookie('user-id'):
-			username = self.request.cookies.get('user-id').split('|')[0]
 			self.render('tweetmoar.html', username = self.user.name)
 		else:
 			self.render('home.html')
 
 class Tweetmoar(BaseHandler):
 
-	def render_front(self, candidates="", posted_tweets="", username=""):
+	def render_front(self, error="", username=""):
 		candidates = tweetmoar.get_candidate_tweets()
 		posted = tweetmoar.get_recently_posted_tweets()
 		self.render("tweetmoar.html",
 					candidates = candidates, 
 					posted = posted, 
-					username = username)
+					username = username,
+					error = error)
 
 	def get(self):
 		if not self.read_secure_cookie('user-id'):
-			self.redirect('/')
+			self.render('home.html')
 		username = self.request.cookies.get('user-id').split('|')[0]
 		self.render_front()
 
 	def post(self):
 		if not self.read_secure_cookie('user-id'):
-			self.redirect('/')
+			self.render('home.html')
 		username = self.request.cookies.get('user-id').split('|')[0]
 
 		#api = get_twitter_api()
@@ -323,14 +323,14 @@ class Tweetmoar(BaseHandler):
 		text = self.request.get('text')
 		via = self.request.get('via')
 		if not text or len(text) < 1:
-			self.render('tweetmoar.html', error="Please enter a tweet.", username=username)
+			self.render('tweetmoar.html', error="Please enter a tweet.", username=self.user.name)
 		else:
-			tweetmoar.update_twitter_status(text, username, via)
-			self.render_front(username=username)
+			tweetmoar.update_twitter_status(text, self.user.name, via)
+			self.render_front(username=self.user.name)
 
 PAGE_RE = r'^(/(?:[a-zA-Z0-9_-]+/?)*)'
 DATE_RE = r'^(/[0-9][0-9][0-9][0-9]-[0-9][0-9]-[0-9][0-9])'
-app = webapp2.WSGIApplication([('/', Home),
+app = webapp2.WSGIApplication([('/', Tweetmoar),
 							   # ('/oauth/callback', CallbackPage),
 							   ('/login', Login),
 							   ('/signup', Signup),

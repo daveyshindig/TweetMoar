@@ -9,11 +9,11 @@ TweetMoar
 
 TweetMoar is a sleek, intuitive web application that lets you and your friends or your organization share a united voice on Twitter. It harnesses the group's social media power to pump up the volume.
 
-### It's much better, tweeting together. 
+### So Much Better, Tweeting Together.
 
-Collective tweeting has arrived. Gone are the days when only one person could serve as the 'designated tweeter'. Crowdsource your tweets, let the desirables behind the scenes to play, and create a collective voice for a single Twitter account.
+Collective tweeting has arrived. Crowdsource your tweets, let the desirables behind the scenes to play, and create a collective voice for a single Twitter account. Gone are the days when only one person could serve as the 'designated tweeter': now everyone can play.
 
-###Adjust & Amplify Your Message
+### Adjust & Amplify Your Message
 
 By scheduling retweets from their own accounts, the group is able to amplify the messages it likes best; administrators can pick rules and setup the program to suit everyone's needs.
 
