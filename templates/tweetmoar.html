@@ -1,89 +1,98 @@
 {% extends "base.html" %}
 {% block head %}
   {{ super() }}
-	    <style type="text/css">
-	      body {
-	        padding-top: 20px;
-	        padding-bottom: 40px;
-	        background-image: none;
-	      	background-color: "white";
-	      }
-	    </style>
+
+    <style type="text/css">
+      body {
+        padding-top: 20px;
+        padding-bottom: 40px;
+      }
+
+      .widget {
+      	background-image: none;
+      	background-color: white;
+      	padding-left: 20px;
+      	padding-right: 10px;
+      	padding-top: 10px;
+      }
+    </style>
 
 {% endblock %}
 {% block content %}
-    	<div class="container-fluid">
-    		<div class="row-fluid">
-    			<div class="span6">
-       				<form method="post">
-					    <fieldset>
-						    <legend>Tweet</legend>
-						    <label>Your tweet:</label>
-						    <input type="text" placeholder="Type something…" name="text" value="{{ text }}">
-						    <span class="help-block">Write up to 140 characters.</span>
-						    <label class="checkbox">
-						    <input type="checkbox" name="via" value="anon">
-						    Post anonymously
-						    </label>
-						    <button type="submit" class="btn">Tweet</button>
-						    <br>
-						    <font color="red">{{ error }}</font>
-					    </fieldset>
-				    </form>
-	 			</div> <!-- /row-fluid -->
-    			<div class="span6">
-    				<div>
-						<h3>Candidate Tweets</h3>
-			            {% if not candidates %}
-	     		            <img src="http://placekitten.com/200/200">
-			            	<p><em>No tweets have yet been suggested.</em></p>
-			            {% else %}
-							<table class="table" max-width="100%">
-								<caption>Click the arrows by tweets you like.</caption>
-					            <thead>
-					              	<tr>
-						                <th>votes</th>
-						                <th>tweet</th>
-						                <th>age</th>
-					              	</tr>
-					            </thead>
-					            <tbody>
-								{% for tweet in candidates %}
-									<tr>
-										<td width="10%">
-											<a href="#"><img src="static/img/up.png" width="16" padding=2px, 5px></a>
-											&nbsp;{{ tweet.upvotes }}
-										</td>
-										<td width="50%">"{{ tweet.text }}"{% if tweet.via %}&nbsp;<em>—@{{ tweet.user }}</em>{% endif %}</td> 
-										<td><font color="grey">{{ tweet.time_str() }}</font></td>
-									</tr>
-								{% endfor %}
-							</tbody>
-						</table>
-					</div>
-					{% endif %}
-			   		<div>
-						<h3>Twitter Feed</h3>
-						{% if posted %}
-						<table class="table">
-							<caption>Recently posted via TweetMoar.</caption>
-				            <tbody>
-								{% for tweet in posted %}
-									<tr>
-										<td>{{ tweet.text }}</td>
-										<td>{{ tweet.user }}</td>
-										<td>{{ tweet.created }}</td>
-									</tr>
-								{% endfor %}
-							</tbody>
-						</table>
-						{% else %}
-			            <img src="http://placekitten.com/200/200">
-						<p><em>No tweets yet.</em></p>
-						{% endif %}
-					</div>
-		   		</div> <!-- /span8 -->
-    		</div> <!-- /row-fluid -->
-    	</div> <!-- /container-fluid -->
+<div class="container-fluid">
+	<div class="row-fluid">
+		<div class="span6 widget">
+			<div>
+   				<form method="post">
+				    <fieldset>
+					    <legend>Tweet</legend>
+					    <label>Your tweet:</label>
+					    <input type="text" placeholder="Type something…" name="text" value="{{ text }}">
+					    <span class="help-block">Write up to 140 characters.</span>
+					    <label class="checkbox">
+					    <input type="checkbox" name="via" value="anon">
+					    Post anonymously
+					    </label>
+					    <button type="submit" class="btn">Tweet</button>
+					    <br>
+					    <font color="red">{{ error }}</font>
+				    </fieldset>
+			    </form>
+			</div>
+	   		<div>
+				<h3>Twitter Feed</h3>
+				{% if posted %}
+				<table class="table">
+					<caption>Recently posted via TweetMoar.</caption>
+		            <tbody>
+						{% for tweet in posted %}
+							<tr>
+								<td>{{ tweet.text }}</td>
+								<td>{{ tweet.user }}</td>
+								<td>{{ tweet.created }}</td>
+							</tr>
+						{% endfor %}
+					</tbody>
+				</table>
+				{% else %}
+	            <img src="http://placekitten.com/200/200">
+				<p><em>No tweets yet.</em></p>
+				{% endif %}
+			</div>
+			</div> <!-- /row-fluid -->
+		<div class="span6 widget">
+				<div>
+				<h3>Candidate Tweets</h3>
+	            {% if not candidates %}
+ 		            <img src="http://placekitten.com/200/200">
+	            	<p><em>No tweets have yet been suggested.</em></p>
+	            {% else %}
+					<table class="table" max-width="100%">
+						<caption><em>Click on arrows by the tweets you like.</em></caption>
+			            <thead>
+			              	<tr>
+				                <th>votes</th>
+				                <th>tweet</th>
+				                <th>age</th>
+			              	</tr>
+			            </thead>
+			            <tbody>
+						{% for tweet in candidates %}
+							<tr>
+								<td width="10%">
+									<a href="#"><img src="static/img/up.png" width="16" padding=2px, 5px></a>
+									&nbsp;{{ tweet.upvotes }}
+								</td>
+								<td width="50%">"{{ tweet.text }}"{% if tweet.via %}&nbsp;<em>—@{{ tweet.user }}</em>{% endif %}</td> 
+								<td><font color="grey">{{ tweet.time_str() }}</font></td>
+							</tr>
+						{% endfor %}
+					</tbody>
+				</table>
+				{% endif %}
+			</div>
+   		</div> <!-- /span8 -->
+	</div> <!-- /row-fluid -->
+</div> <!-- /container-fluid -->
 {% endblock %}
 {% block footer %}{% endblock %}

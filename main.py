@@ -306,6 +306,7 @@ class Tweetmoar(BaseHandler):
 	def get(self):
 		if not self.read_secure_cookie('user-id'):
 			self.render('home.html')
+			return
 		username = self.request.cookies.get('user-id').split('|')[0]
 		self.render_front()
 
@@ -328,6 +329,12 @@ class Tweetmoar(BaseHandler):
 			tweetmoar.update_twitter_status(text, self.user.name, via)
 			self.render_front(username=self.user.name)
 
+
+class About(BaseHandler):
+
+	def get(self):
+		self.render('about.html')
+
 PAGE_RE = r'^(/(?:[a-zA-Z0-9_-]+/?)*)'
 DATE_RE = r'^(/[0-9][0-9][0-9][0-9]-[0-9][0-9]-[0-9][0-9])'
 app = webapp2.WSGIApplication([('/', Tweetmoar),
@@ -337,6 +344,7 @@ app = webapp2.WSGIApplication([('/', Tweetmoar),
 							   ('/welcome', Tweetmoar),
 							   ('/logout', Logout),
 							   ('/suggestionbox', SuggestionBox),
-							   ('/tweet', Tweetmoar)],
+							   ('/tweet', Tweetmoar),
+							   ('/about', About)],
 							   debug=True)
 
